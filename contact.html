@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | For Good Creative Consultancy</title>
+<meta name="description" content="Book a free consultation with Emily Miller.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Nunito:wght@300;400;700;800&family=Comfortaa:wght@300;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg class="scroll-line" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true"><path vector-effect="non-scaling-stroke" d="M8 0 C 30 120, -10 220, 14 330 S 40 520, 10 640 S -6 860, 16 1000"/></svg>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="For Good Creative Consultancy by Emily Miller, home"><img class="logo-icon" src="images/logo-icon-color-allblack.png" alt=""><span class="logo-text"><span class="tag">For Good Creative Consultancy</span><span class="nm"><span class="by">by</span>Emily Miller</span></span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="Menu">Menu</button>
+    <ul>
+      <li><a class="link" href="index.html">Home</a></li>
+      <li><a class="link" href="services.html">Services</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="work.html">Work Samples</a></li>
+      <li><a class="btn" href="contact.html" aria-current="page">Book a Free Consultation</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h1>Let's chat.</h1>
+        <p style="font-size:1.2rem;color:var(--ink-soft)">Reach out and tell me what you need support with, and how I can help. A free consultation is low-stakes: no pressure, no commitment.</p>
+        <form class="contact" id="contact-form" action="https://formspree.io/f/xyewdkrz" method="POST">
+          <input type="hidden" name="_subject" value="New consultation request from the website">
+          <div><label for="name">Your name <span class="req" aria-hidden="true">*</span></label><input id="name" name="name" required autocomplete="name"></div>
+          <div><label for="email">Email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autocomplete="email"></div>
+          <div><label for="business">Business name <span class="note">(optional)</span></label><input id="business" name="business" autocomplete="organization"></div>
+          <div><label for="message">What do you need support with? <span class="req" aria-hidden="true">*</span></label><textarea id="message" name="message" required></textarea></div>
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div><button class="btn" type="submit">Send my message</button></div>
+          <p class="note"><span class="req" aria-hidden="true">*</span> Required</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="photo reveal"><img src="images/family-blossoms.jpg" alt="Emily with her three children under a blossoming tree" style="aspect-ratio:4/5;object-fit:cover;object-position:50% 72%"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="brand-lockup light" aria-hidden="true"><img class="logo-icon" src="images/logo-icon-color-white.png" alt=""><span class="logo-text"><span class="tag">For Good Creative Consultancy</span><span class="nm"><span class="by">by</span>Emily Miller</span></span></span>
+    <p>© <span id="y"></span> For Good Creative Consultancy by Emily Miller · Minnesota</p>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="js/main.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

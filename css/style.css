@@ -1,0 +1,434 @@
+/* For Good Creative Consultancy by Emily Miller — draft styles */
+:root {
+  /* Palette: Flat UI "Spanish" left column + LinkedIn banner navy/coral.
+     (Variable names kept from earlier drafts; values are what matter.) */
+  --cream: #efeadf;
+  --paper: #ffffff;
+  --ink: #2c2c54;        /* deep navy */
+  --ink-soft: #474787;
+  --indigo: #40407a;
+  --orange: #ff5252;     /* coral: buttons, accents */
+  --orange-dark: #b33939; /* brick: links, button shadows */
+  --pink: #ff5252;
+  --pink-soft: #cd6133;  /* burnt orange (muted) */
+  --blue: #227093;       /* ocean blue (muted) */
+  --sage: #d1ccc0;       /* light warm gray */
+  --butter: #cc8e35;     /* mustard (muted) */
+  --gray: #aaa69d;
+  --gray-dark: #84817a;
+  --charcoal: #3a3a4c;
+  --black: #1c1c26;
+  --radius: 28px;
+  --radius-sm: 16px;
+  --shadow: 0 4px 8px rgba(44, 44, 84, .18), 0 18px 36px rgba(44, 44, 84, .28);
+  --font-head: "Fraunces", Georgia, serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+html, body { overflow-x: clip; }
+img { max-width: 100%; display: block; }
+img[src$="logo.png"] { mix-blend-mode: multiply; }
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 .6em; font-weight: 600; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 1em; }
+a { color: var(--orange-dark); }
+
+.wrap { width: min(1080px, 100% - 40px); margin-inline: auto; position: relative; z-index: 1; }
+section { padding: 72px 0; position: relative; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; font-weight: 800; color: var(--orange-dark); margin-bottom: .6rem; }
+
+/* ---------- Header / nav ---------- */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(247, 241, 227, .94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(43,27,61,.08); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 0; }
+.nav .brand img { height: 56px; width: auto; }
+.nav ul { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; align-items: center; }
+.nav a.link { text-decoration: none; color: var(--ink); font-weight: 700; padding: 8px 14px; border-radius: 999px; font-size: 1rem; }
+.nav a.link:hover, .nav a.link[aria-current="page"] { background: var(--sage); }
+.nav-toggle { display: none; background: none; border: 2px solid var(--ink); border-radius: 12px; padding: 6px 12px; font: inherit; font-weight: 800; color: var(--ink); cursor: pointer; }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-block; background: var(--orange); color: var(--ink); text-decoration: none; font-weight: 800; padding: 14px 28px; border-radius: 999px; border: 0; cursor: pointer; font-size: 1.05rem; font-family: inherit; box-shadow: 0 6px 0 var(--orange-dark); transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(2px); box-shadow: 0 4px 0 var(--orange-dark); }
+.btn:active { transform: translateY(6px); box-shadow: 0 0 0 var(--orange-dark); }
+.btn.ghost { background: transparent; color: var(--ink); box-shadow: none; border: 2px solid var(--ink); }
+.btn.ghost:hover { background: var(--butter); transform: none; }
+.nav a.btn { padding: 10px 20px; font-size: .95rem; box-shadow: 0 4px 0 var(--orange-dark); }
+
+/* ---------- Hero ---------- */
+.hero { padding-top: 56px; padding-bottom: 88px; background: var(--ink); color: #fff; border-radius: 0 0 56px 56px; overflow: hidden; }
+.hero h1 { color: #fff; }
+.hero .eyebrow { color: #ff9a9a; }
+.hero .lead { color: #dcdcf5; }
+.hero .btn.ghost { color: #fff; border-color: #fff; }
+.hero .btn.ghost:hover { background: var(--indigo); }
+.hero .portrait::before { background: var(--orange); }
+/* confetti dots, echoing the LinkedIn banner */
+.hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(circle at 93% 88%, #fff 0 22px, transparent 23px),
+    radial-gradient(circle at 97% 78%, #ff5252 0 9px, transparent 10px),
+    radial-gradient(circle at 86% 94%, #34ace0 0 6px, transparent 7px); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+.hero .lead { font-size: 1.25rem; color: #dcdcf5; max-width: 36em; }
+.hero .actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+.portrait { position: relative; }
+.portrait img { border-radius: 46% 54% 40% 60% / 48% 42% 58% 52%; box-shadow: var(--shadow); width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; }
+.portrait::before { content: ""; position: absolute; inset: -18px -18px 18px 18px; background: var(--butter); border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; z-index: -1; }
+
+/* ---------- Abstract shapes (decor) ---------- */
+.shape { position: absolute; z-index: 0; pointer-events: none; opacity: .85; }
+.shape.s1 { width: 220px; top: 20px; right: -60px; }
+.shape.s2 { width: 160px; bottom: 30px; left: -50px; }
+
+/* ---------- Cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; margin-top: 28px; }
+.card { background: var(--paper); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+.card .icon { width: 56px; height: 56px; border-radius: 18px 28px 18px 28px; display: grid; place-items: center; font-size: 1.6rem; margin-bottom: 14px; }
+.c1 .icon { background: var(--butter); } .c2 .icon { background: var(--blue); } .c3 .icon { background: var(--pink-soft); } .c4 .icon { background: var(--orange); }
+
+.band { background: var(--paper); border-radius: 48px; box-shadow: var(--shadow); padding: 48px; }
+.band.tint { background: var(--indigo); color: #fff; box-shadow: none; }
+.band.tint h2, .band.tint .eyebrow { color: #fff; }
+.band.tint .btn.ghost { color: #fff; border-color: #fff; }
+.band.tint .btn.ghost:hover { background: var(--orange); color: var(--ink); }
+.band.tint .chips li { color: var(--ink); }
+.band.warm { background: var(--sage); box-shadow: none; }
+
+/* ---------- Trifecta (who / what / how) ---------- */
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; margin-top: 24px; }
+.trio > div { border-radius: var(--radius); padding: 28px; }
+.trio .who { background: var(--blue); color: #fff; } .trio .what { background: var(--orange); } .trio .how { background: var(--indigo); color: #fff; }
+.trio h3 { margin-bottom: .4em; }
+
+/* ---------- Quotes ---------- */
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 24px; }
+blockquote { margin: 0; background: var(--paper); border-radius: var(--radius); padding: 28px 28px 22px; box-shadow: var(--shadow); font-family: var(--font-head); font-size: 1.15rem; position: relative; }
+blockquote::before { content: "\201C"; font-size: 4rem; line-height: .6; color: var(--pink); position: absolute; top: 24px; left: 16px; opacity: .35; }
+blockquote p { padding-left: 14px; }
+blockquote footer { font-family: var(--font-body); font-size: .95rem; color: var(--ink-soft); padding-left: 14px; }
+.placeholder { background: repeating-linear-gradient(45deg, #fff, #fff 10px, #fff3e6 10px, #fff3e6 20px); border: 2px dashed var(--orange); }
+
+/* ---------- Lists / chips ---------- */
+.chips { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.chips li { background: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 16px; font-weight: 700; font-size: .98rem; }
+.chips.soft li { border-color: transparent; background: var(--paper); box-shadow: 0 3px 10px rgba(43,27,61,.1); }
+.logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 20px; }
+.logos div { background: var(--paper); border: 2px dashed var(--ink-soft); border-radius: var(--radius-sm); height: 90px; display: grid; place-items: center; color: var(--ink-soft); font-weight: 700; font-size: .9rem; }
+
+/* ---------- Two-column feature ---------- */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.split .photo img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.split.reverse .photo { order: 2; }
+
+/* ---------- CTA band ---------- */
+.cta-band { text-align: center; }
+.cta-band .band { background: linear-gradient(135deg, var(--ink) 0%, var(--indigo) 100%); color: #fff; box-shadow: none; position: relative; overflow: hidden; }
+.cta-band h2 { color: #fff; }
+.cta-band p { color: #fff; }
+
+/* ---------- Form ---------- */
+form.contact { display: grid; gap: 16px; max-width: 640px; }
+label { font-weight: 800; display: block; margin-bottom: 6px; }
+input, select, textarea { width: 100%; font: inherit; padding: 14px 16px; border: 2px solid var(--ink); border-radius: var(--radius-sm); background: #fff; color: var(--ink); }
+input:focus, select:focus, textarea:focus { outline: 3px solid var(--butter); border-color: var(--orange); }
+textarea { min-height: 150px; resize: vertical; }
+.hp { position: absolute; left: -9999px; }
+.note { font-size: .95rem; color: var(--ink-soft); }
+
+/* ---------- Work grid ---------- */
+.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-top: 24px; }
+.work { background: var(--paper); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.work .thumb { aspect-ratio: 4/3; display: grid; place-items: center; font-weight: 800; color: #fff; background: var(--blue); }
+.work:nth-child(2n) .thumb { color: var(--ink); }
+.work:nth-child(2n) .thumb { background: var(--sage); } .work:nth-child(3n) .thumb { background: var(--indigo); }
+.work .body { padding: 20px 24px 24px; }
+
+/* ---------- Footer ---------- */
+footer.site-footer { padding: 48px 0 64px; text-align: center; color: var(--ink-soft); font-size: .95rem; }
+footer.site-footer img { height: 56px; margin: 0 auto 12px; }
+
+/* ---------- Scroll line (light animation) ---------- */
+.scroll-line { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.scroll-line path { fill: none; stroke: var(--pink); stroke-width: 4; stroke-linecap: round; opacity: .5; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .scroll-line { display: none; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 820px) {
+  .hero::before { background:
+    radial-gradient(circle at 94% 4%, #ff5252 0 14px, transparent 15px),
+    radial-gradient(circle at 84% 2%, #fff 0 12px, transparent 13px),
+    radial-gradient(circle at 98% 12%, #fff 0 5px, transparent 6px),
+    radial-gradient(circle at 6% 97%, #ff5252 0 16px, transparent 17px),
+    radial-gradient(circle at 15% 99%, #fff 0 7px, transparent 8px); }
+  .hero-grid, .split { grid-template-columns: 1fr; gap: 32px; }
+  .split.reverse .photo { order: 0; }
+  .portrait { max-width: 380px; margin-inline: auto; }
+  section { padding: 52px 0; }
+  .band { padding: 28px 22px; border-radius: 32px; }
+  .nav-toggle { display: block; }
+  .nav ul { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; padding: 14px 20px 22px; border-bottom: 1px solid rgba(43,27,61,.1); align-items: stretch; }
+  .nav ul.open { display: flex; }
+  .nav a.link, .nav a.btn { display: block; text-align: center; }
+}
+
+/* ---------- Shadows behind every content panel ---------- */
+.card, .trio > div, .band, .band.tint, .band.warm, .cta-band .band,
+blockquote, .work, .logos div, .split .photo img, .portrait img { box-shadow: var(--shadow); }
+.chips.soft li { box-shadow: 0 4px 10px rgba(44, 44, 84, .22); }
+
+/* ---------- Extra panel colors (so neighbouring panels don't blur together) ---------- */
+.band.sky { background: var(--blue); }
+.band.sky .note { color: var(--ink); }
+.band.coral { background: var(--orange); }
+.band.coral { background: var(--orange-dark); color: #fff; }
+.band.coral h2 { color: #fff; }
+.band.coral .btn.ghost { color: #fff; border-color: #fff; }
+.band.coral .btn.ghost:hover { background: var(--orange); color: var(--ink); }
+
+/* ---------- Muted-palette adjustments ---------- */
+.band.sky { color: #fff; }
+.band.sky h2, .band.sky .eyebrow, .band.sky .note { color: #fff; }
+.band.sky .btn.ghost { color: #fff; border-color: #fff; }
+
+/* Gray rounded blocks to break up the page and add contrast */
+section.alt { background: var(--sage); border-radius: 56px; width: min(1180px, calc(100% - 24px)); margin-inline: auto; }
+section.alt .chips li { background: #fff; }
+footer.site-footer { background: var(--sage); color: var(--ink); border-radius: 56px 56px 0 0; margin-top: 48px; padding: 44px 0 56px; }
+
+/* ---------- Warped bubbles ---------- */
+main section::after { content: ""; position: absolute; z-index: 0; pointer-events: none; width: 170px; height: 170px;
+  border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; }
+main section:nth-of-type(odd)::after  { left: -70px; bottom: 24px; background: var(--orange-dark); width: 140px; height: 140px; }
+main section:nth-of-type(even)::after { right: -70px; top: 36px; background: var(--indigo); }
+main section:nth-of-type(3n)::after   { background: var(--blue); }
+main section:nth-of-type(4n)::after   { background: var(--orange); width: 120px; height: 120px; }
+main section.hero::after { background: var(--orange); left: auto; right: 6%; bottom: 14px; top: auto; width: 90px; height: 90px; }
+main section.alt::after { opacity: .9; }
+
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; transform: translate(0, 0) rotate(0deg); }
+  33%      { border-radius: 42% 58% 38% 62% / 55% 40% 60% 45%; transform: translate(8px, -16px) rotate(10deg); }
+  66%      { border-radius: 55% 45% 62% 38% / 40% 58% 42% 60%; transform: translate(-6px, -6px) rotate(-8deg); }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  50%      { transform: translate(14px, -22px) rotate(14deg) scale(1.06); }
+}
+main section:nth-of-type(even)::after { animation: morph 11s ease-in-out infinite; }
+main section.hero::after { animation: morph 8s ease-in-out infinite; }
+.shape.float { animation: drift 14s ease-in-out infinite; }
+.shape.float.slow { animation-duration: 20s; animation-direction: reverse; }
+
+@media (prefers-reduced-motion: reduce) {
+  main section::after, .shape.float { animation: none !important; }
+}
+@media (max-width: 820px) {
+  main section::after { width: 100px; height: 100px; }
+  main section.alt, footer.site-footer { border-radius: 36px; }
+  footer.site-footer { border-radius: 36px 36px 0 0; }
+}
+
+/* ---------- Black blocks ---------- */
+.band.sky { background: var(--black); }
+footer.site-footer { background: var(--black); color: #d8d8e2; }
+footer.site-footer img { background: #fff; border-radius: 14px; padding: 6px 12px; mix-blend-mode: normal; height: 64px; }
+
+/* ---------- Animated hero dots (left side) ---------- */
+.dot { position: absolute; border-radius: 50%; z-index: 0; pointer-events: none; }
+.dot.d1 { width: 28px; height: 28px; left: 4%;  top: 14%; background: var(--orange); animation: bob 6s ease-in-out infinite; }
+.dot.d2 { width: 36px; height: 36px; left: 10%; top: 8%;  background: #fff;          animation: bob 8s ease-in-out -2s infinite; }
+.dot.d3 { width: 12px; height: 12px; left: 22%; top: 11%; background: #fff;          animation: bob 5s ease-in-out -1s infinite; }
+@keyframes bob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(8px, -18px) scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce) { .dot { animation: none !important; } }
+@media (max-width: 820px) {
+  .dot.d1 { left: 5%; top: auto; bottom: 3%; }
+  .dot.d2 { left: 14%; top: auto; bottom: 1%; }
+  .dot.d3 { left: 24%; top: auto; bottom: 4%; }
+}
+
+/* ---------- Mustard replaces gray for the "warm" band so grays aren't back-to-back ---------- */
+.band.warm { background: var(--butter); }
+.band.warm .eyebrow { color: var(--ink); }
+
+/* ---------- Swap: sample-services block is black, "who I love" block is gray ---------- */
+.chips li { color: var(--ink); }
+section.alt.dark { background: var(--black); color: #fff; }
+section.alt.dark h2 { color: #fff; }
+.band.gray { background: var(--sage); color: var(--ink); }
+.band.gray h2 { color: var(--ink); }
+.band.gray .note { color: var(--ink); }
+
+/* ---------- Work page "Want to see more?" panel: white with navy text and button ---------- */
+.band.coral { background: #fff; color: var(--ink); }
+.band.coral h2 { color: var(--ink); }
+.band.coral .btn.ghost { background: var(--ink); color: #fff; border-color: var(--ink); }
+.band.coral .btn.ghost:hover { background: var(--orange); color: var(--ink); border-color: var(--orange); }
+
+/* ---------- Work cards: colors move to the text block; image area stays neutral for real images ---------- */
+.work .thumb, .work:nth-child(2n) .thumb, .work:nth-child(3n) .thumb { background: var(--cream); color: var(--ink-soft); }
+.work .body { background: var(--blue); color: #fff; }
+.work .body h3 { color: #fff; }
+.work:nth-child(2n) .body { background: var(--sage); color: var(--ink); }
+.work:nth-child(2n) .body h3 { color: var(--ink); }
+.work:nth-child(3n) .body { background: var(--indigo); color: #fff; }
+.work:nth-child(3n) .body h3 { color: #fff; }
+
+/* Home "What you get" panel: mustard */
+.trio .what { background: var(--butter); color: var(--ink); }
+
+/* Services "How I work" panel: ocean blue (About keeps mustard) */
+.band.ocean { background: var(--blue); color: #fff; }
+.band.ocean h2 { color: #fff; }
+
+/* Services page: mustard bubbles, esp. beside the "Sample services" block */
+.page-services main section:nth-of-type(3)::after,
+.page-services main section:nth-of-type(4)::after { background: var(--butter); }
+
+/* More mustard bubbles across the site */
+main section:nth-of-type(4n)::after,
+.page-home main section:nth-of-type(2)::after,
+.page-about main section:nth-of-type(3)::after,
+.page-work main section:nth-of-type(3)::after { background: var(--butter); }
+
+/* About: bubble by "Brands I've supported" is ocean blue (the mustard panel sits right above it) */
+.page-about main section:nth-of-type(3)::after { background: var(--blue); }
+
+/* ---------- Bigger, transparent header logo ---------- */
+.nav .brand img { height: 84px; width: auto; mix-blend-mode: normal; }
+.nav { padding: 8px 0; }
+@media (max-width: 820px) { .nav .brand img { height: 68px; } }
+
+/* ---------- Logo: "Emily Miller" beside the icon + tagline on wide screens, stacked on narrower ones ---------- */
+.nav .brand { display: flex; align-items: center; }
+.nav .brand img.logo-stacked { display: none; height: 72px; }
+.nav .brand .logo-wide { display: flex; align-items: center; gap: 16px; }
+.nav .brand .logo-wide img { width: auto; }
+.nav .brand .logo-wide img:first-child { height: 40px; }
+.nav .brand .logo-wide img:last-child { height: 46px; }
+@media (max-width: 1100px) {
+  .nav .brand .logo-wide { display: none; }
+  .nav .brand img.logo-stacked { display: block; }
+}
+
+/* ---------- Live-text logo (crisp at any size, uses site fonts and colors) ---------- */
+.nav .brand, .brand-lockup { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav .brand img.logo-icon, .brand-lockup img.logo-icon { height: 46px; width: auto; display: block; mix-blend-mode: normal; background: none; border-radius: 0; padding: 0; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.logo-text .tag { font-family: var(--font-body); font-weight: 800; font-size: .74rem; letter-spacing: .02em; color: var(--orange-dark); }
+.logo-text .nm { font-family: var(--font-head); font-weight: 600; font-size: 1.5rem; color: var(--ink); margin-top: 2px; }
+.brand-lockup { justify-content: center; margin: 0 auto 14px; }
+.brand-lockup.light .logo-text .tag { color: #ff9a9a; }
+.brand-lockup.light .logo-text .nm { color: #fff; }
+footer.site-footer img { background: none; padding: 0; height: auto; }
+footer.site-footer .brand-lockup img.logo-icon { height: 44px; }
+@media (max-width: 480px) {
+  .nav .brand img.logo-icon { height: 36px; }
+  .logo-text .tag { font-size: .6rem; }
+  .logo-text .nm { font-size: 1.2rem; }
+}
+
+/* Home banner: lower-right blob and smallest left dot are mustard */
+main section.hero::after { background: var(--butter); }
+.dot.d3 { background: var(--butter); }
+
+/* Home banner: coral dot on the left is white */
+.dot.d1 { background: #fff; }
+
+/* Correction: left dot goes back to coral (the white one is the bottom-right circle behind the mustard blob) */
+.dot.d1 { background: var(--orange); }
+
+/* ---------- Logo type refinements: distinctive name font, thin colored "by" ---------- */
+.logo-text .nm { display: flex; align-items: baseline; gap: 7px; font-family: "Comfortaa", var(--font-head); font-weight: 500; font-size: 1.4rem; letter-spacing: .01em; color: var(--ink); }
+.logo-text .by { font-family: "Comfortaa", var(--font-body); font-weight: 300; font-size: .85rem; letter-spacing: 0; color: #227093; }
+.brand-lockup.light .logo-text .by { color: #7fc4e0; }
+@media (max-width: 480px) {
+  .logo-text .nm { font-size: 1.1rem; gap: 5px; }
+  .logo-text .by { font-size: .7rem; }
+}
+
+/* "by" in the logo: gray on light backgrounds, white on the black footer */
+.logo-text .by { color: #6b6a75; }
+.brand-lockup.light .logo-text .by { color: #fff; }
+
+/* Larger logo tagline; name and icon scaled up a touch to stay balanced */
+.nav .brand img.logo-icon { height: 54px; }
+.logo-text .tag { font-size: .96rem; letter-spacing: .015em; }
+.logo-text .nm { font-size: 1.6rem; }
+.logo-text .by { font-size: .95rem; }
+.nav { padding: 10px 0; }
+@media (max-width: 480px) {
+  .nav .brand img.logo-icon { height: 38px; }
+  .logo-text .tag { font-size: .68rem; }
+  .logo-text .nm { font-size: 1.15rem; }
+  .logo-text .by { font-size: .72rem; }
+}
+
+/* ---------- Navy header option (off by default): add class="dark-header" to <body> and use logo-icon-color-white.png in the header to enable ---------- */
+.dark-header .site-header { background: var(--ink); border-bottom: 1px solid rgba(255, 255, 255, .14); }
+.dark-header .nav a.link { color: #fff; }
+.dark-header .nav a.link:hover, .dark-header .nav a.link[aria-current="page"] { background: rgba(255, 255, 255, .16); color: #fff; }
+.dark-header .nav-toggle { border-color: #fff; color: #fff; }
+.dark-header .nav .brand .logo-text .tag { color: #ff9a9a; }
+.dark-header .nav .brand .logo-text .nm, .dark-header .nav .brand .logo-text .by { color: #fff; }
+@media (max-width: 820px) { .dark-header .nav ul { background: var(--ink); border-bottom: 1px solid rgba(255, 255, 255, .14); } }
+
+/* Header logo: name in black to match the icon */
+.nav .brand .logo-text .nm { color: var(--black); }
+
+/* ---------- Footer: one centered column (icon, name, copyright) ---------- */
+footer.site-footer { text-align: center; padding: 48px 0 52px; }
+footer.site-footer .wrap { display: flex; flex-direction: column; align-items: center; }
+footer.site-footer .brand-lockup { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; width: auto; margin: 0 0 20px; }
+footer.site-footer .brand-lockup img.logo-icon { height: 52px; }
+footer.site-footer .logo-text { align-items: center; text-align: center; }
+footer.site-footer .logo-text .nm { justify-content: center; }
+footer.site-footer p { margin: 0; text-align: center; font-size: .95rem; }
+
+/* ---------- Contact form status message ---------- */
+.form-status { margin: 0; font-weight: 700; min-height: 1.5em; }
+.form-status.success { color: #1f6b3a; }
+.form-status.error { color: var(--orange-dark); }
+.btn[disabled] { opacity: .6; cursor: progress; }
+
+/* Required-field asterisk */
+.req { color: var(--orange-dark); font-weight: 800; }
+
+/* The large white bubble in the Home banner is warped (not round) and morphs as it floats */
+.dot.d2 { width: 44px; height: 36px; border-radius: 62% 38% 54% 46% / 44% 60% 40% 56%; animation: bobwarp 8s ease-in-out -2s infinite; }
+@keyframes bobwarp {
+  0%, 100% { transform: translate(0, 0) rotate(0deg);   border-radius: 62% 38% 54% 46% / 44% 60% 40% 56%; }
+  50%      { transform: translate(8px, -18px) rotate(16deg); border-radius: 40% 60% 42% 58% / 58% 42% 60% 40%; }
+}
+@media (prefers-reduced-motion: reduce) { .dot.d2 { animation: none !important; } }
+
+/* Work page "Want to see more?" panel: text on the left, button on the right, tighter padding */
+.band.coral { display: grid; grid-template-columns: 1fr auto; column-gap: 32px; align-items: center; padding: 36px 48px; }
+.band.coral h2 { grid-column: 1; margin-bottom: .25em; }
+.band.coral p { grid-column: 1; margin: 0; }
+.band.coral .btn { grid-column: 2; grid-row: 1 / span 2; white-space: nowrap; }
+@media (max-width: 700px) {
+  .band.coral { grid-template-columns: 1fr; padding: 28px 22px; }
+  .band.coral .btn { grid-column: 1; grid-row: auto; margin-top: 18px; justify-self: start; }
+}
