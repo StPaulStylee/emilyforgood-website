@@ -568,3 +568,6 @@ footer.site-footer p { margin: 0; text-align: center; font-size: .95rem; }
 
 /* Coral call-to-action buttons ("Book a Free Consultation", "Send my message"): white text */
 .btn { color: #fff; }
+
+/* Work Samples: the bubble beside the short-form block / "Want more samples?" is blue */
+.page-work main section:nth-of-type(3)::after { background: var(--blue); }
