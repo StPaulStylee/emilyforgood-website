@@ -565,3 +565,6 @@ footer.site-footer p { margin: 0; text-align: center; font-size: .95rem; }
 /* Services: the two lower-left bubbles swap colors (beside "Sample services" and beside the closing banner) */
 .page-services main section:nth-of-type(3)::after { background: var(--orange-dark); }
 .page-services main section:nth-of-type(5)::after { background: var(--butter); }
+
+/* Coral call-to-action buttons ("Book a Free Consultation", "Send my message"): white text */
+.btn { color: #fff; }
