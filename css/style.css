@@ -574,3 +574,6 @@ footer.site-footer p { margin: 0; text-align: center; font-size: .95rem; }
 
 /* Home: the navy bubble sits behind the gray services block (all screen sizes) */
 .page-home main section:nth-of-type(3)::after { z-index: -1; }
+
+/* About: consultation button hover = white text on coral */
+.page-about .about-hero .btn.ghost:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
